@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         $0.delegate = self
         $0.backgroundColor = .white
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        $0.separatorStyle = .none // Убираем разделители для красоты
+        $0.separatorStyle = .none // Убираем разделители для красоты
         return $0
     }(UITableView())
     
