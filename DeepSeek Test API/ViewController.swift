@@ -180,5 +180,3 @@ extension ViewController: UITableViewDelegate {
         return 60
     }
 }
-
-//фцвфцв
