@@ -5,6 +5,30 @@
 //  Created by Ильяс on 25.07.2025.
 //
 
+/*
+ COMMIT MESSAGER
+ 
+ NEW FEATURE:
+ [Feature] Deacription of the feature
+ [Feature] если добавил какую-то функцию в код
+ 
+ BUG IN PRODUCTION:
+ [Patch] Description of the bug
+ [Patch] Исправление уже существующих функций в релизе
+ 
+ BUG NOT IN PRODUCTION:
+ [Bug] Description of the bug
+ [Bug] Исправление бага в приложении
+ 
+ MUNDANE TASKS:
+ [Clean] Description of changes
+ [Clean] Чистка и приведение в порядок существующего кода
+ 
+ RELESE:
+ [Release] Description of release
+ [Release] Если выпустил новую версию и отправил в продакшен
+*/
+
 import Foundation
 
 class RequestDeepSeek {
