@@ -151,7 +151,7 @@ extension ViewController: UITableViewDataSource {
             cell.textLabel?.textAlignment = .right
             cell.textLabel?.textColor = .darkText
             cell.contentView.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.1)
-        } else if messages[indexPath.row].hasPrefix("🚫") {
+        } else if messages[indexPath.row].hasPrefix(" 🚫 ") {
             // Ошибка
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .systemRed
