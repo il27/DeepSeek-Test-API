@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.clipsToBounds = true
         $0.backgroundColor = .systemBlue
-//        $0.setTitle("→", for: .normal) // Стрелка вместо текстач
+        $0.setTitle("→", for: .normal) // Стрелка вместо текста
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         $0.addAction(UIAction { [weak self] _ in
             self?.sendMessage()
@@ -180,4 +180,3 @@ extension ViewController: UITableViewDelegate {
         return 60
     }
 }
-
