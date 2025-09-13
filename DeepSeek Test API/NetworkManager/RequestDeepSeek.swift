@@ -37,7 +37,7 @@ class RequestDeepSeek {
     
     func sendRequest(message: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: urlDeepSeek) else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 0)))
+            completion(.failure(NSError(domain: "Invalid URL", code: 11)))
             return
         }
         
