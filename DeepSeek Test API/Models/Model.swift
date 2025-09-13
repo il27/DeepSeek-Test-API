@@ -40,14 +40,4 @@ struct AIResponse: Decodable {
 //  ]
 //  
 //}
-
-//{
-//  "model": "deepseek/deepseek-r1-0528:free",
-//  "messages": [
-//    {
-//      "role": "user",
-//      "content": "What is the meaning of life?"
-//    }
-//  ]
-//
-//}
+//123
