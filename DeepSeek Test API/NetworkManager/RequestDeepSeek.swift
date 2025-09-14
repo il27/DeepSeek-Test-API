@@ -6,6 +6,15 @@
 //
 
 /*
+ Cloce = Copying the repo locally
+ Commit = Save ("checkpoint") changes in our current branch
+ Stage = Prepare changes for a commint
+ Stash = Send local commints to remote repo
+ Pull = Fetch remote commits to local repo
+ Merge = Joining two different branch
+ Rebase = Moving one branch on top of another branch
+ Cherry picking = Duplicationg (copying) one commit from one branch to another
+ 
  COMMIT MESSAGER
  
  NEW FEATURE:
