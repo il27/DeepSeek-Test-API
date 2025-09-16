@@ -42,9 +42,10 @@
 */
 
 import Foundation
+// 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
 
 class RequestDeepSeek {
-    private let apiKey = "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"
+    private let apiKey = "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"
     private let urlDeepSeek = "https://openrouter.ai/api/v1/chat/completions"
     
     func sendRequest(message: String, completion: @escaping (Result<String, Error>) -> Void) {
