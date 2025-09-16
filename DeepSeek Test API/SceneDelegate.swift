@@ -13,7 +13,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        // Проверяем, что у нас есть объект UIWindowScene
+        guard let windowScene = scene as? UIWindowScene else { return }
+        
+        // Создаем окно с привязкой к сцене
+        let window = UIWindow(windowScene: windowScene)
+        
+        // Инициализируем главный контроллер
+        let viewController = ViewController()
+        
+        // Устанавливаем его как корневой
+        window.rootViewController = viewController
+        
+        // Сохраняем окно и показываем его
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
 
