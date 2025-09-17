@@ -23,7 +23,6 @@
  ReadMe
  Releases, Tags, Versioning
  
- 
  COMMIT MESSAGER
  
  NEW FEATURE:
