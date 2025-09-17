@@ -17,6 +17,11 @@
  Pull Request (PR) = Request to merger branch
  PR Merge = Marge all commits
  PR Squash and Merge = Squash all commits into ONE and then merge ONE commit
+ Protection Branches
+ CODEOWNERS
+ GitIgnore
+ ReadMe
+ Releases, Tags, Versioning
  
  COMMIT MESSAGER
  
