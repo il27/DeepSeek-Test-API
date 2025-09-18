@@ -11,6 +11,12 @@ class ViewController: UIViewController {
     
     private let network = RequestDeepSeek()
     private var messages: [String] = [] // Изменяемый массив сообщений
+
+    // --- Constraints для дальнейшей передачи KeyboardManager
+    private var textFieldBottomConstraint: NSLayoutConstraint! // 👈 NEW
+    private var buttonBottomConstraint: NSLayoutConstraint!    // 👈 NEW
+
+    private var keyboardManager: KeyboardManager?              // 👈 NEW
     
     lazy var tableViewDeepSeek: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +60,19 @@ class ViewController: UIViewController {
         // Добавляем тестовое сообщение при запуске
         messages.append("🤖: Привет! Я твой помощник по Swift. Задай мне вопрос!")
         tableViewDeepSeek.reloadData()
+
+        // --- KeyboardManager подключение ---
+        keyboardManager = KeyboardManager(
+            view: self.view,
+            textFieldBottomConstraint: textFieldBottomConstraint,
+            buttonBottomConstraint: buttonBottomConstraint
+        )
+    }
+    
+    // --- Открываем клавиатуру автоматически при появлении ---
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textPromtDeepSeek.becomeFirstResponder() // 👈 NEW
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,22 +82,26 @@ class ViewController: UIViewController {
     }
     
     private func setupTapGesture() {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-            tapGesture.cancelsTouchesInView = false // Разрешаем передачу тапов дальше
-            view.addGestureRecognizer(tapGesture)
-        }
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapGesture.cancelsTouchesInView = false // Разрешаем передачу тапов дальше
+        view.addGestureRecognizer(tapGesture)
+    }
         
-        @objc private func handleTap(_ gesture: UITapGestureRecognizer) {
-            // Если клавиатура показана - скрываем её
-            if textPromtDeepSeek.isFirstResponder {
-                textPromtDeepSeek.resignFirstResponder()
-            }
+    @objc private func handleTap(_ gesture: UITapGestureRecognizer) {
+        // Если клавиатура показана - скрываем её
+        if textPromtDeepSeek.isFirstResponder {
+            textPromtDeepSeek.resignFirstResponder()
         }
+    }
     
     func setupUI() {
         view.addSubview(tableViewDeepSeek)
         view.addSubview(textPromtDeepSeek)
         view.addSubview(buttonDeepSeek)
+
+        // --- Создаём и сохраняем bottom constraints ---
+        textFieldBottomConstraint = textPromtDeepSeek.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16) // 👈 NEW
+        buttonBottomConstraint = buttonDeepSeek.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)       // 👈 NEW
         
         NSLayoutConstraint.activate([
             tableViewDeepSeek.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -86,12 +109,12 @@ class ViewController: UIViewController {
             tableViewDeepSeek.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableViewDeepSeek.bottomAnchor.constraint(equalTo: textPromtDeepSeek.topAnchor, constant: -8),
             
-            textPromtDeepSeek.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            textFieldBottomConstraint, // 👈 NEW
             textPromtDeepSeek.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textPromtDeepSeek.trailingAnchor.constraint(equalTo: buttonDeepSeek.leadingAnchor, constant: -16),
             textPromtDeepSeek.heightAnchor.constraint(equalToConstant: 54),
             
-            buttonDeepSeek.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            buttonBottomConstraint,    // 👈 NEW
             buttonDeepSeek.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             buttonDeepSeek.heightAnchor.constraint(equalToConstant: 54),
             buttonDeepSeek.widthAnchor.constraint(equalToConstant: 54)
@@ -180,5 +203,3 @@ extension ViewController: UITableViewDelegate {
         return 60
     }
 }
-
-
