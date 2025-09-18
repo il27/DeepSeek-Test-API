@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         )
     }
     
-    // --- Открываем клавиатуру автоматически при появлении ---
+    // --- Открываем клавиатуру автоматически при появлении
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         textPromtDeepSeek.becomeFirstResponder() // 👈 NEW
