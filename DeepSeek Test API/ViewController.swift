@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     private let network = RequestDeepSeek()
     private var messages: [String] = [] // Изменяемый массив сообщений
 
-    // --- Constraints для дальнейшей передачи KeyboardManager ---
+    // --- Constraints для дальнейшей передачи KeyboardManager
     private var textFieldBottomConstraint: NSLayoutConstraint! // 👈 NEW
     private var buttonBottomConstraint: NSLayoutConstraint!    // 👈 NEW
 
